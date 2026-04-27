@@ -88,7 +88,7 @@ function runCronbachAnalysis() {
   // 5. BLUE BADGE
   var nameCell = dashSheet.getRange(6, summaryCol);
   dashSheet.getRange(6, summaryCol, 1, 3).merge();
-  nameCell.setValue("Designed and Built by: Peter Paul C. Abangan")
+  nameCell.setValue("Designed and Built by: https://github.com/peterabangan")
           .setFontFamily("Impact").setFontColor("white").setBackground("#0080FF")
           .setFontWeight("bold").setFontStyle("italic").setFontSize(12).setHorizontalAlignment("left");
 
