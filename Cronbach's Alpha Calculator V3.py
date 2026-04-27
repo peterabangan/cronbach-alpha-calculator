@@ -21,7 +21,6 @@ def automate_research():
 
     #likert scale filter
     items = numeric_df.dropna(axis=1, how='all') #text columns dropped
-    #items = df.drop(df.columns[[0, 1, 2, 10, 11, 12, 13]], axis=1) #manual drop of non-likert columns
     items = items.loc[:, (items.max() <= 6) & (items.min() >= 1)]
     
     #dynamic
@@ -56,7 +55,7 @@ def automate_research():
     headers = ["Resp No."] + question_labels + ["Total"]
     dash_sheet.update('A1', [headers])
 
-    #respondents id & data
+    #ID & DATA of Respondents
     resp_ids = [[i+1] for i in range(num_responses)]
     dash_sheet.update('A2', resp_ids)
     dash_sheet.update('B2', items.values.tolist())
@@ -78,7 +77,7 @@ def automate_research():
         ["Sum of item variances =", sum_item_variances],
         ["Variance of total scores =", total_scores_var],
         ["Cronbach's Alpha =", alpha],
-        ["Designed and Built by: Peter Paul C. Abangan"]
+        ["Designed and Built by: https://github.com/peterabangan"]
     ]
     dash_sheet.update(f'{summary_col_letter}2', summary_data)
 
@@ -86,7 +85,7 @@ def automate_research():
     name_cell_start = f"{summary_col_letter}6"
     name_cell_end = f"{rowcol_to_a1(6, total_col_index + 6)}"
 
-    #design&built
+    #design & build watermark
     dash_sheet.format(name_cell_start, {
         "backgroundColor": {"red": 0.0, "green": 0.5, "blue": 1.0},
         "textFormat": {
