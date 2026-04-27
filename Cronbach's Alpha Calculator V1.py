@@ -20,7 +20,7 @@ def get_cronbach_alpha(sheet_name):
     #Remove timestamp column (because gsheets always adds timestamp, ruins cronbach result)
     items = df.drop(df.columns[[0, 1, 2, 8]], axis=1)
 
-    #Calculate Cronbach's Alpha
+    #Get Cronbach's Alpha result
     alpha_result = pg.cronbach_alpha(data=items)
     return alpha_result
 
